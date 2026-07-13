@@ -21,6 +21,9 @@ This project implements a **MultiModalSegModel** that:
 
 ## Architecture
 
+![Architecture](image/architecture.png)
+
+
 ### Components
 
 #### 1. **ImageEncoder3D** (`models/image_encoder.py`)
@@ -160,6 +163,8 @@ python scripts/test.py
 
 #### Output
 
+##### Quantitative Results
+
 ```
 Dice Score: 0.6092
 
@@ -185,6 +190,22 @@ Seminal_vesicles: 0.4601
 Spleen: 0.8306
 Stomach: 0.7845
 ```
+
+##### Qualitative Results
+
+Each row shows, from left to right: the original CT slice, the ground truth mask (green), the model prediction (red), and an overlap analysis where **yellow = Overlap (TP)**, **green = GT Only (FN)**, and **red = Predict Only (FP)**.
+
+**Liver** — Text prompt: `"Segment the liver in this abdominal CT scan"`
+
+![Liver segmentation](image/liver.png)
+
+**Spleen** — Text prompt: `"Extract the spleen from this CT volume"`
+
+![Spleen segmentation](image/spleen.png)
+
+**Bladder** — Text prompt: `"Delineate the urinary bladder in this pelvic CT scan"`
+
+![Bladder segmentation](image/bladder.png)
 
 ## Training Details
 
